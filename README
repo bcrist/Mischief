@@ -1,0 +1,57 @@
+   Project Mischief - 2D Sidescrolling Puzzle Platformer
+
+About:
+   Mischief is 2D platformer and level editor written in C++.  It utilizes the
+   Allegro library, although the graphics systems mostly utilize OpenGL
+   directly.
+
+License:
+   Copyright (c) 2012 Project Mischief
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to
+   deal in the Software without restriction, including without limitation the
+   rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+   sell copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+   IN THE SOFTWARE.
+
+Style:
+   Mischief adheres mostly to the Google Style Guide with a few modifications:
+
+   1. Indentation is three spaces, not two.  Access modifier lines in class
+      declarations are not indented at all (Google specifies one space).
+      Multiline constructor initializer lists are indented six spaces:
+
+      ReallyLongConstructorNameIsReallyLong()
+            : some_member_variable_(NULL),
+              other_member_variable_(true)
+      {
+         ...
+      }
+
+   2. Function names (including getters and setters) use camelCase, not
+      PascalCase or underscored_lowercase.  Setter functions always begin with
+      "set" and getter functions always begin with "get" (except for boolean
+      getters, which may begin with "is").
+
+   3. Compile-time constants and enum values use the form "kCONSTANT_NAME"
+      instead of "kConstantName".
+
+   4. Except for empty blocks and short inline functions defined in one line,
+      block braces always appear alone on a separate line from control
+      structures, function signatures, etc.
+
+   The Google Style Guide can be found at:
+
+   http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml

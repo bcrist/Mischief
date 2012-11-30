@@ -24,7 +24,7 @@
 #ifndef OGL3TEST_APP_H_
 #define OGL3TEST_APP_H_
 
-//#define _USE_MATH_DEFINES
+#define _USE_MATH_DEFINES
 
 #ifdef WIN32
 #define ALLEGRO_NO_MAGIC_MAIN
@@ -34,6 +34,8 @@
 #pragma comment (lib, "allegro-5.0.8-monolith-md-debug.lib")
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_opengl.h>
+
+#include <glm/glm.hpp>
 
 #include "logger.h"
 
@@ -51,13 +53,30 @@ public:
 
 private:
    static const GLfloat vbo_data_[18];
+   static const GLfloat vbo_uv_data_[12];
 
    bool init_successful_;
 
    GLuint vao_id_;
    GLuint vbo_id_;
-
+   GLuint tex_id_;
    GLuint prog_id_;
+
+   GLuint matrix_loc_;
+
+   GLuint ambient_color_loc_;
+   GLuint light_color_loc_;
+   GLuint light_pos_loc_;
+   GLuint light_range_loc_;
+   GLuint sampler_loc_;
+
+   glm::mat4 mvp_;
+
+
+   glm::vec3 ambient_color_;
+   glm::vec3 light_color_;
+   glm::vec3 light_pos_;
+   glm::vec2 light_range_;
 
    ALLEGRO_DISPLAY *display_;
    ALLEGRO_EVENT_QUEUE *queue_;

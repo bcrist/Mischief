@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C++ Express 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mischief", "Mischief\Mischief.vcxproj", "{6F80578B-B48A-4735-8F85-4F848D8CEF81}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenGL3Test", "OpenGL3Test\OpenGL3Test.vcxproj", "{551F8155-F078-4BAD-9FC5-3B37DA0A6EDB}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenGL3_3Test", "OpenGL3_3Test\OpenGL3_3Test.vcxproj", "{CDAF0DCD-57E0-4775-A98B-98884D73F98A}"
 EndProject
 Global
@@ -17,10 +15,6 @@ Global
 		{6F80578B-B48A-4735-8F85-4F848D8CEF81}.Debug|Win32.Build.0 = Debug|Win32
 		{6F80578B-B48A-4735-8F85-4F848D8CEF81}.Release|Win32.ActiveCfg = Release|Win32
 		{6F80578B-B48A-4735-8F85-4F848D8CEF81}.Release|Win32.Build.0 = Release|Win32
-		{551F8155-F078-4BAD-9FC5-3B37DA0A6EDB}.Debug|Win32.ActiveCfg = Debug|Win32
-		{551F8155-F078-4BAD-9FC5-3B37DA0A6EDB}.Debug|Win32.Build.0 = Debug|Win32
-		{551F8155-F078-4BAD-9FC5-3B37DA0A6EDB}.Release|Win32.ActiveCfg = Release|Win32
-		{551F8155-F078-4BAD-9FC5-3B37DA0A6EDB}.Release|Win32.Build.0 = Release|Win32
 		{CDAF0DCD-57E0-4775-A98B-98884D73F98A}.Debug|Win32.ActiveCfg = Debug|Win32
 		{CDAF0DCD-57E0-4775-A98B-98884D73F98A}.Debug|Win32.Build.0 = Debug|Win32
 		{CDAF0DCD-57E0-4775-A98B-98884D73F98A}.Release|Win32.ActiveCfg = Release|Win32

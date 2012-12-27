@@ -180,7 +180,8 @@ bool App::initOpenGL()
 
    fs_oss << "void main() {" << std::endl;
    fs_oss << "   float len = length(light_pos - pos);" << std::endl;
-   fs_oss << "   len = smoothstep(light_range.x, light_range.y, len);" << std::endl;
+   fs_oss << "   len = 1.0 / (len * len);" << std::endl;
+   //fs_oss << "   len = smoothstep(light_range.x, light_range.y, len);" << std::endl;
    //fs_oss << "   len = clamp((len - light_range.x) / (light_range.y - light_range.x), 0.0, 1.0);" << std::endl;
    //fs_oss << "   len = len * len * len * (3.0 - 2.0 * len);" << std::endl;
    fs_oss << "   vec3 tex_color = texture(tex_sampler, uv).rgb;" << std::endl;
@@ -248,10 +249,10 @@ bool App::initOpenGL()
    ambient_color_ = glm::vec3(0.45f);
    ambient_color_loc_ = glGetUniformLocation(prog_id_, "ambient_color");
 
-   light_color_ = glm::vec3(0.3, 0.9, 0.7);
+   light_color_ = glm::vec3(0.03, 0.09, 0.07);
    light_color_loc_ = glGetUniformLocation(prog_id_, "light_color");
 
-   light_pos_ = glm::vec3(-999, -999, 0);
+   light_pos_ = glm::vec3(-999, -999, 0.25);
    light_pos_loc_ = glGetUniformLocation(prog_id_, "light_pos");
 
    light_range_ = glm::vec2(0.75, 0.1);

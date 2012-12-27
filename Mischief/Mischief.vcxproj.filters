@@ -13,5 +13,81 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\contrib">
+      <UniqueIdentifier>{c8ee0a7d-a304-4813-b972-16db56020e8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\contrib">
+      <UniqueIdentifier>{ecfa8600-7c9f-4c30-bedd-2acc4aab43c3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\texture_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\mischief_std.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\profiler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\profile_node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\display.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\display_configuration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\include\sqlite3.h">
+      <Filter>Header Files\contrib</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\include\sqlite3ext.h">
+      <Filter>Header Files\contrib</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\include\stb_image.h">
+      <Filter>Header Files\contrib</Filter>
+    </ClInclude>
+    <ClInclude Include="include\logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\configuration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\texture_manager.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\profiler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\profile_node.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\display.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\display_configuration.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\src\sqlite3.c">
+      <Filter>Source Files\contrib</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\src\stb_image.c">
+      <Filter>Source Files\contrib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\logger.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\configuration.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

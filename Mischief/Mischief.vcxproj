@@ -25,7 +25,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -50,6 +50,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>include;src;contrib/include;contrib/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -65,6 +67,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>include;src;contrib/include;contrib/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -74,6 +77,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="contrib\include\sqlite3.h" />
+    <ClInclude Include="contrib\include\sqlite3ext.h" />
+    <ClInclude Include="contrib\include\stb_image.h" />
+    <ClInclude Include="include\configuration.h" />
+    <ClInclude Include="include\display.h" />
+    <ClInclude Include="include\display_configuration.h" />
+    <ClInclude Include="include\game.h" />
+    <ClInclude Include="include\logger.h" />
+    <ClInclude Include="include\mischief_std.h" />
+    <ClInclude Include="include\profiler.h" />
+    <ClInclude Include="include\profile_node.h" />
+    <ClInclude Include="include\texture_manager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="contrib\src\sqlite3.c" />
+    <ClCompile Include="contrib\src\stb_image.c" />
+    <ClCompile Include="src\configuration.cc" />
+    <ClCompile Include="src\display.cc" />
+    <ClCompile Include="src\display_configuration.cc" />
+    <ClCompile Include="src\game.cc" />
+    <ClCompile Include="src\logger.cc" />
+    <ClCompile Include="src\profiler.cc" />
+    <ClCompile Include="src\profile_node.cc" />
+    <ClCompile Include="src\texture_manager.cc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

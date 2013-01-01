@@ -19,47 +19,4 @@
 // THE SOFTWARE.
 //
 // Author: Benjamin Crist
-// File: display_configuration.h
-
-#ifndef MISCHIEF_DISPLAY_CONFIGURATION_H_
-#define MISCHIEF_DISPLAY_CONFIGURATION_H_
-#include "mischief_std.h"
-
-#include "sqlite3.h"
-
-MSC_BEGIN
-
-struct DisplayConfiguration
-{
-   static DisplayConfiguration load(sqlite3 *db);
-   static void save(const DisplayConfiguration &dc, sqlite3 *db);
-   static const DisplayConfiguration default_configuration;
-
-   enum DisplayMode
-   {
-      kDISPLAY_WINDOWED = 0,
-      kDISPLAY_FULLSCREEN_WINDOWED = 1,
-      kDISPLAY_FULLSCREEN = 2
-   };
-
-   DisplayConfiguration();
-   DisplayConfiguration(DisplayMode mode, int adapter, int refresh_rate, int multisamples, int width, int height);
-
-   DisplayMode display_mode;
-   int display_adapter;
-   int refresh_rate;
-   int multisamples;
-   int width;
-   int height;
-
-private:
-   static bool tableExists(sqlite3 *db);
-
-   static void log(const char *msg);
-   static void log(const char *msg, sqlite3 *db);
-   static void log(const char *msg, sqlite3 *db, const char *sql);
-};
-
-MSC_END
-
-#endif
+// File: texture_manager.cc

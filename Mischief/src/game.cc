@@ -54,12 +54,6 @@ Game::Game()
    if (!al_install_mouse())
       Logger::appendLine("Failed to install mouse!");
 
-   //if (!initOpenGL())
-   //{
-   //   startupError("There was a problem creating the OpenGL context!");
-   //   return;
-   //}
-
    al_queue_ = al_create_event_queue();
    if (!al_queue_)
    {
@@ -67,10 +61,15 @@ Game::Game()
       return;
    }
 
-   Configuration config = Configuration::load("./mischief_conf.mdb");
-
    al_register_event_source(al_queue_, al_get_keyboard_event_source());
    al_register_event_source(al_queue_, al_get_mouse_event_source());
+
+   
+   
+
+   Configuration config = Configuration::load("./mischief_conf.mdb");
+
+   
 
    display_ = Display::createDisplay(al_queue_, config.display);
    if (!display_)

@@ -36,50 +36,57 @@ DisplayConfiguration DisplayConfiguration::load(sqlite3 *db)
 {
    DisplayConfiguration dc(default_configuration);
 
-   const char *sql = "SELECT mode, adapter, refresh_rate, "
-                     "multisamples, width, height FROM m_conf_display "
-                     "ORDER BY _rowid_ DESC LIMIT 1";
+   
 
-   sqlite3_stmt *stmt;
-   if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) == SQLITE_OK)
-   {
-      int result = sqlite3_step(stmt);
-      if (result == SQLITE_ROW)
-      {
-         switch (sqlite3_column_int(stmt, 0))
+   
+         sql = "SELECT mode, adapter, refresh_rate, "
+               "multisamples, width, height FROM m_conf_display "
+               "ORDER BY _rowid_ DESC LIMIT 1";
+
+         if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) == SQLITE_OK)
          {
-            case (int)kDISPLAY_FULLSCREEN_WINDOWED:
-               dc.display_mode = kDISPLAY_FULLSCREEN;
-               break;
+            int result = sqlite3_step(stmt);
+            if (result == SQLITE_ROW)
+            {
+               switch (sqlite3_column_int(stmt, 0))
+               {
+                  case (int)kDISPLAY_FULLSCREEN_WINDOWED:
+                     dc.display_mode = kDISPLAY_FULLSCREEN;
+                     break;
 
-            case (int)kDISPLAY_FULLSCREEN:
-               dc.display_mode = kDISPLAY_FULLSCREEN;
-               break;
+                  case (int)kDISPLAY_FULLSCREEN:
+                     dc.display_mode = kDISPLAY_FULLSCREEN;
+                     break;
 
-            default:
-               dc.display_mode = kDISPLAY_WINDOWED;
-         }
+                  default:
+                     dc.display_mode = kDISPLAY_WINDOWED;
+               }
 
-         dc.display_adapter = sqlite3_column_int(stmt, 1);
-         dc.refresh_rate = sqlite3_column_int(stmt, 2);
-         dc.multisamples = sqlite3_column_int(stmt, 3);
-         dc.width = sqlite3_column_int(stmt, 4);
-         dc.height = sqlite3_column_int(stmt, 5);
+               dc.display_adapter = sqlite3_column_int(stmt, 1);
+               dc.refresh_rate = sqlite3_column_int(stmt, 2);
+               dc.multisamples = sqlite3_column_int(stmt, 3);
+               dc.width = sqlite3_column_int(stmt, 4);
+               dc.height = sqlite3_column_int(stmt, 5);
       
-         log("Successfully loaded configuration from database.");
-      }
-      else if (result == SQLITE_DONE)
-         log("No configuration found in database; using defaults.");
-      else
-         log("Failed to load configuration from database", db);
+               log("Successfully loaded configuration from database.");
+            }
+            else if (result == SQLITE_DONE)
+               log("No configuration found in database; using defaults.");
+            else
+               log("Failed to load configuration from database", db);
 
-      if (sqlite3_finalize(stmt) != SQLITE_OK)
-         log("Error finalizing statement", db);
+            if (sqlite3_finalize(stmt) != SQLITE_OK)
+               log("Error finalizing statement", db);
+         }
+         else  // sqlite3_prepare_v2() != SQLITE_OK
+            log("Could not prepare statement", db, sql);
+
+      }
+      else if (result != SQLITE_DONE)
+         log("Error executing statement", db, sql);
    }
-   else  // sqlite3_prepare_v2() != SQLITE_OK
-   {
+   else
       log("Could not prepare statement", db, sql);
-   }
 
    return dc;
 }
@@ -173,6 +180,25 @@ DisplayConfiguration::DisplayConfiguration(DisplayMode mode, int adapter, int re
         width(width),
         height(height)
 {
+}
+
+bool DisplayConfiguration::tableExists(sqlite3 *db)
+{
+   bool retval = 
+   const char *sql = "SELECT 1 FROM sqlite_master WHERE type='table' AND name='m_conf_display'";
+
+   sqlite3_stmt *stmt;
+   if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) == SQLITE_OK)
+   {
+      int result = sqlite3_step(stmt);
+      if (result == SQLITE_ROW)
+      {
+         if (sqlite3_finalize(stmt) != SQLITE_OK)
+            log("Error finalizing statement", db, sql);
+      }
+   }
+
+   return retval;
 }
 
 void DisplayConfiguration::log(const char *msg)
